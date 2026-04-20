@@ -1,0 +1,141 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1.5rem 0;
+  transition: all var(--transition-smooth);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  padding: 1rem 0;
+  /* glass uses backdrop-filter from index.css */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: width var(--transition-fast);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.icon-btn {
+  color: var(--text-primary);
+  transition: transform var(--transition-fast);
+}
+
+.icon-btn:hover {
+  transform: translateY(-2px);
+}
+
+.cart-btn {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--accent-gold);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+    color: var(--text-primary);
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-primary);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--transition-fast);
+  }
+
+  .nav-links.mobile-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links.mobile-open .mobile-only {
+    display: block;
+  }
+}

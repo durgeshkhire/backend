@@ -1,0 +1,137 @@
+:root {
+  /* Colors - Light Minimalist Premium */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F7F7F7;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --accent-gold: #D4AF37;
+  --accent-gold-hover: #b8962d;
+  --border-light: #EAEAEA;
+  --error: #FF4D4F;
+
+  /* Typography */
+  --font-body: 'Outfit', sans-serif;
+  
+  /* Transition / Animation */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Shadows */
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.05) 0px 8px 32px 0px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utilities */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Base Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.btn-primary:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-accent {
+  background-color: var(--accent-gold);
+  color: #fff;
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline {
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  border-color: var(--text-primary);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Typography Classes */
+.h1 { font-size: 3.5rem; font-weight: 300; letter-spacing: -1px; line-height: 1.1; }
+.h2 { font-size: 2.5rem; font-weight: 400; letter-spacing: -0.5px; }
+.h3 { font-size: 1.75rem; font-weight: 500; }
+.text-muted { color: var(--text-secondary); }
+
+/* Animation Utils */
+.fade-in {
+  animation: fadeIn var(--transition-smooth);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .h1 { font-size: 2.5rem; }
+  .h2 { font-size: 2rem; }
+  .container { padding: 0 1rem; }
+}
